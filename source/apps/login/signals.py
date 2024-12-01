@@ -50,6 +50,7 @@ def create_default_admin(sender):
             # Сохраняем нового администратора в базе данных
             admin_user.save()
 
+
 @receiver(post_migrate)
 def tasks(sender, **kwargs):
     """Обработчик сигнала post_migrate.

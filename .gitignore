@@ -8,7 +8,7 @@ __pycache__/
 .volumes/
 # C extensions
 *.so
-
+source/static/
 test/
 
 # Distribution / packaging
