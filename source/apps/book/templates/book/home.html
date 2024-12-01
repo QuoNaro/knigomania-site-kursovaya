@@ -1,0 +1,72 @@
+{% extends "book/BASE.html" %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+<link rel="stylesheet" href="{% static 'book/css/home.css' %}">
+
+{% endblock%}
+
+
+{% block script %}
+<script src="{% static 'book/js/home.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+{% endblock %}
+
+{% block content%}
+<p class="title">Библеотека</p>
+<div class="library">
+  <div class="books-filters">
+    <div  class="up-to-price">
+      <h2>Цена до (в руб.) </h2>
+      <input type="number" min="0" step="1" placeholder="Введите число">
+    </div>
+  
+    <div class="author-filter">
+      <h2>Автор</h2>
+      <select class="author-filter-select" name="authors[]" multiple="multiple" style="width: 100%;">
+        {% for a in authors %}
+        <option value="{{ a.id }}">{{ a.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    
+    <div  class="genre-filter">
+      <h2>Жанр</h2>
+      <select class="genre-filter-select" name="genres[]" multiple="multiple" style="width: 100%;">
+        {% for g in genres %}
+        <option value="{{ g }}">{{ g }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  
+    <div class="tag-filter">
+      <h2>Тэг</h2>
+      <select class="tag-filter-select" name="tags[]" multiple="multiple" style="width: 100%;">
+        {% for t in tags %}
+        <option value="{{ t }}">{{ t }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  
+  
+    <div class="filter-btns">
+      <button type="submit">Применить</button>
+      <button type="reset">Сбросить</button>
+    </div>
+  
+  
+  
+  </div>
+  <div class="books">
+    
+  </div>
+  <div class="up-button">&gt;</div>
+
+</div>
+
+
+{% endblock %}
+
+
+

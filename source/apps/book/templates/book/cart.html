@@ -1,0 +1,111 @@
+{% extends "book/BASE.html" %} {% load static %} {% block link %}
+
+
+<link rel="stylesheet" href="{% static 'book/css/cart.css' %}" />
+{% endblock%} {% block script %}
+<script src="{% static 'book/js/cart.js' %}"></script>
+<script src="https://unpkg.com/shuffle-letters"></script>
+
+{% endblock %} {% block content %}
+<input type="hidden" name="summary_money" value="0" />
+<input type="hidden" name="remainder" value="0" />
+<div class="footer"></div>
+
+<div class="cart-container">
+  <h1>Корзина</h1>
+  {% if cart_items %}
+    <div class="wrapper">
+      {% for item in cart_items %}
+      <div class="item">
+        <div class="cart-item">
+          <input type="hidden" name="book_id" value="{{ item.book.pk }}" />
+          <input type="hidden" name="cart_item_id" value="{{ item.pk }}" />
+          
+          <div class="left-con">
+            <img src="{{ item.book.image }}" class="cart-item-cover" />
+            <div class="cart-item-description">
+              <h3 class="cart-item-title">{{ item.book.title }}</h3>
+              <div class="cart-item-author">{{ item.book.author.name }}</div>
+            </div>
+          </div>
+    
+          <div class="cart-item-settings">
+            <div class="cart-item-quantity">{{ item.quantity }}</div>
+            <input type="hidden" value="{{ item.book.price }}" name="std-book-price" />
+
+            <input type="hidden" value="{{ item.total_price }}" name="book-price" />
+            <div class="cart-item-price">{{ item.total_price|floatformat:"0" }}  руб.</div>
+          </div>
+        </div>
+        <div class="cart-item-buttons">
+          <div class="arrows">
+            <img class="left-arrow" src="{% static 'book/img/left-arrow.svg' %}" alt="">
+            <img class="right-arrow" src="{% static 'book/img/right-arrow.svg' %}" alt="">
+          </div>
+          <img class="trash" src="{% static 'book/img/trash.svg' %}" alt="">
+          
+         
+        
+        </div>
+      </div>
+      
+
+      
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>Ваша корзина пуста.</p> <!-- Сообщение о пустой корзине -->
+  {% endif %}
+</div>
+
+
+<div class="right-cart-container">
+  <div class="order-container">
+    {% csrf_token %}
+    <h2>Параметры заказа</h2>
+    <div class="address-container">
+      <p>Адрес</p>
+      <div class="inputs-address">
+        <input
+          type="text"
+          id="search-address"
+          name="search-address"
+          placeholder="адрес"
+        />
+        <input type="number" id="flat" class="flat" placeholder="кв." />
+      </div>
+      <div class="address {% if user.address %} lock {% endif %}">
+        {% if user.address %} 
+          {{ user.address }} 
+        {% else %} 
+          Адрес не указан 
+        
+        {% endif %}
+      </div>
+
+      <div class="locker" type="save" style="border-color: #fc625d">
+        <p>Сохранить</p>
+        <img src="{% static 'book/img/lock.svg' %}" alt="" srcset="" />
+      </div>
+
+      <div class="calc">
+        <div class="cash" id="cash">{{ user.money }} руб.</div>
+        <div class="minus">-</div>
+        <div id="summary_price">0</div>
+        <div class="equal">=</div>
+        <div id="result">0</div>
+      </div>
+
+      <div class="search-address-box"></div>
+    </div>
+
+    <input type="submit" id="place-order" class="inactive" value="Заказать" />
+  </div>
+
+  <div class="orders">
+    <h2>Ваши заказы</h2>
+    <div class="orders-list"></div>
+  </div>
+</div>
+
+{% endblock %}

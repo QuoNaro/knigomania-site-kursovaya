@@ -1,0 +1,38 @@
+[tool.ruff]
+target-version = "py312"  # Целевая версия Python (3.12)
+# Исключаем определенные директории и файлы из линтинга
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules"
+]
+
+# Настройки форматирования
+line-length = 110  # Максимальная длина строки
+indent-width = 2  # Ширина отступа
+
+# Настройки линтинга
+[tool.ruff.lint]
+select = ["E", "W", "C", "F", "N", "D", "I"]  # Группы правил для проверки
+ignore = []  # Игнорируемые правила
+fixable = ["ALL"]  # Разрешить исправление всех правил при использовании --fix
+unfixable = []  # Непоправимые ошибки
+
+# Дополнительные настройки
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"  # Регулярное выражение для переменных-заглушек

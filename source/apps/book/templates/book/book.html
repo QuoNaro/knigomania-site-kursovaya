@@ -1,0 +1,85 @@
+{% extends "book/BASE.html" %} {% load static %} {% block link %}
+<link rel="stylesheet" href="{% static 'book/css/book.css' %}" />
+{% endblock%} {% block script %}
+<script src="{% static 'book/js/book.js' %}"></script>
+{% endblock %} {% block content%}
+{% csrf_token %}
+
+
+  <div class="book-preview">
+    <input type="hidden" value="{{ book.pk }}" name="book-id">
+    <img class="book-cover" src="{{ book.image }}" alt="{{ book.title }}" />
+    <div class="book-title">{{ book.title }}</div>
+    <div class="book-author">{{book.author}}</div>
+ 
+    
+    <div class="book-price">
+      <div class="price">{{book.price}} руб.</div>
+      <div class="quantity"></div>
+    </div>
+    {% if not user.is_authenticated %}<p class="auth-warning">Для покупки необходимо авторизоваться</p>{% endif %}
+    
+    
+  </div>
+
+  <div class="book-details">
+    <div class="book-description">
+      <div class="d-book-description">
+        <div class="book-description-title">Описание</div>
+        <img
+          class="book-description-cover"
+          src="{% static 'book/img/catwriter.svg' %}"
+          class="book-description-cover"
+        />
+      </div>
+
+      <div class="annotation">«{{ book.annotation }}»</div>
+    </div>
+
+    
+    <div class="book-info">
+      <div class="d-book-info">
+        <img src="{% static 'book/img/catlupa.svg' %}" class="d-book-info-cover">
+        <div class="d-book-info-title">Информация о книге</div>
+      </div>
+
+      <div class="genres">
+        <div class="genres-title">Жанры</div>
+        <div class="genres-list">
+          {% for genre in book.genre  %}
+          <div class="genre">{{ genre }}</div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="tags">
+        <div class="tags-title">Тэги</div>
+        <div class="tags-list">
+          {% for tag in book.tags  %}
+          <div class="tag">{{ tag }}</div>
+          {% endfor %}
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="recommendations">
+      <div class="d-book-recommendations">
+        
+        <p>Рекомендации для вас</p>
+        <img
+        class="book-recommendations-cover"
+        src="{% static 'book/img/catbook.svg' %}"
+          alt=""
+        />
+      </div>
+
+      <div class="book-recommendations">
+
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

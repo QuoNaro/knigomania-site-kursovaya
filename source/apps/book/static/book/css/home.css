@@ -1,0 +1,343 @@
+
+.child-container {
+  flex-direction: column;
+  justify-content: center; 
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+
+.title {
+  font-family: 'LeonovSP';
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 3.5em;
+  z-index: 10;
+  color: #FC625D;
+  position: relative;
+}
+
+.title::before {
+  content: "БИБЛЕОТЕКА";
+  font-family: 'LeonovSP';
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1em;
+  position: absolute;
+  transform: translateX(5px) translateY(-4px);
+  
+  z-index: 0;
+  color: #6d59df;
+  
+}
+
+
+.library {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.books {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-flow: row;
+  gap: 20px;
+  flex-grow: 1;
+  background-color: #dddddd;
+  padding: 20px;
+  box-sizing: border-box;
+  /* height: max-content; */
+  border-radius: 15px;
+}
+
+.book {
+  background-color: #f8f8f8;
+  gap: 5px;
+  position: relative;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  max-height: 430px;
+}
+
+.book .img {
+  border-radius: 20px 20px 0 0 ;
+  aspect-ratio: 1/1.5;
+  display: flex;
+  width: 100%;
+  height: 70%;
+}
+
+.book .name {
+  display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 15%;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  font-weight: 800;
+  justify-content: center;
+  align-items: center;
+}
+
+.book .author {
+  
+  display: flex;
+  height: 10%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: #383838;
+
+
+  
+}
+
+.book .price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: 5px;
+  border-radius: 15px;
+  top: 10px;
+  left: 10px;
+  color: #ffffff;
+  box-sizing: border-box;
+  background-color: #6d59df;
+  font-weight: 900;
+
+  
+}
+
+
+
+.loading-placeholder {
+  position:  absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(45deg, #dddddd, #e7e7e7);
+  background-size: 200% 200%; /* Увеличиваем размер фона для анимации */
+  animation: gradient-animation 1s ease infinite; 
+  border-radius: 20px 20px 0 0 ;
+
+}
+
+.up-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  width: 50px;
+  position: fixed;
+  background-color: #6d59df;
+  box-shadow: 0 0 10px #313131;
+  z-index: 999;
+  right: 5%;
+  height: 50px;
+  color: #ffffff;
+  rotate: -90deg;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 35px;
+  bottom: 2%;
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+  user-select: none;
+  transition: .4s ease-in-out;
+
+}
+
+
+
+.up-button:hover {
+  transition: .4s ease-in-out;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #414141;
+
+  background-color: #5c4bc0;
+}
+
+.books-filters {
+  display: flex;
+  width: 250px;
+  height: max-content;
+  padding: 10px;
+  gap: 10px;
+  box-sizing: border-box;
+  flex-direction: column;
+  background-color: #dddddd ;
+  border-radius: 15px;
+}
+
+.filter-btns {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.filter-btns > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.filter-btns button:nth-child(1) {
+  background-color: #8bfac6; /* Цвет для первой кнопки */
+}
+
+.filter-btns button:nth-child(2) {
+  background-color: #ff6464; /* Цвет для второй кнопки */
+}
+
+@keyframes gradient-animation {
+  0% {
+      background-position: 0% 50%; /* Начальная позиция */
+  }
+  50% {
+      background-position: 100% 50%; /* Позиция в середине анимации */
+  }
+  100% {
+      background-position: 0% 50%; /* Возврат к началу */
+  }
+}
+
+.books-filters h2 {
+  margin-bottom: 5px;
+}
+
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Убирает стандартные стрелки */
+  margin: 0; /* Убирает отступы */
+}
+
+input[type="number"] {
+  outline: none;
+  width: 100%;
+  height: 30px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+input[type="number"]::placeholder{
+  color: #949494;
+  
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+
+.select2-results__options {
+  overflow-x: hidden;
+}
+
+.select2-results__options::-webkit-scrollbar {
+  width: 8px; /* Уменьшите ширину полосы прокрутки */
+}
+
+.select2-results__options::-webkit-scrollbar-thumb {
+  background-color: #6d59df; /* Цвет ползунка */
+  height: 30px;
+}
+
+.select2-results__options::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Цвет фона полосы прокрутки */
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: #6d59df;
+}
+
+.select2-container .select2-selection--multiple .select2-selection__rendered {
+  white-space: unset;
+}
+
+.select2-selection__clear {
+  position: absolute;
+  right: 0;
+}
+
+
+
+@font-face {
+  font-family: "LeonovSP"; 
+  src: url("LeonovSP.otf") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+} 
+
+button {
+  outline: none;
+  border: 1px solid #aaa;
+}
+
+.filter-btns {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-btns button {
+  width: 50%;
+  text-align: center;
+  text-transform: uppercase;
+  transition: .4s ease-in-out;
+
+  font-weight: 700; 
+}
+
+.filter-btns button:hover { 
+  filter: brightness(90%);
+  transition: .4s ease-in-out;
+
+} 
+
+
+.price {
+  transition: .4s ease-in-out;
+  opacity: 1;
+}
+.book:hover > .price {
+  transition: .4s ease-in-out;
+  opacity: 0;
+}

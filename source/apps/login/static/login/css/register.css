@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+	font-family: 'Roboto';
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+input {
+	all: unset;
+}
+
+.c1 { 
+    display: flex;
+    align-items: center;
+    color: #000;
+    justify-content: space-between;
+    padding: 0 10px 0 5px;
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.register {
+    border: #000 1px solid;
+    background-color: none;
+    position: relative;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+    margin-top: 5px;
+    border-radius: 15px;
+    height: 35px;
+    text-align: center;
+    color: #000000;
+    caret-color: #000000;
+}
+
+.register:hover + .c1 span {
+    color: blue; /* Change this to your desired color */
+}
+
+
+
+.first-name ,
+.last-name,
+.email,
+.username,
+.password,
+.password-confirmation {
+    width: 90%;
+}
+
+
+body {
+	display: flex;
+	width: 100%;
+	background-color: #ffffff;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+form#box.box {
+    padding: 20px;
+}
+
+.box {
+	background-color: #ffffff;
+    width: 100%;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	display: flex;
+	box-shadow: #d3d3d3 0 0 15px;
+    border-radius: 30px;
+	grid-gap: 10px;
+}
+
+.register-link:hover {
+    transition: 0.4s ease-in-out;
+  
+    color: #eead34;
+  }
+
+.logo {
+    width: 30vh;
+	max-width: 400px;
+	height: auto;
+}
+
+.hr {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+}
+
+.hr span {
+    position: absolute;
+    color: #000000;
+    font-weight: 500;
+
+}
+
+.hr hr {
+    margin: 5px 0 5px 0;
+    width: 100%;
+    mask-mode: alpha;
+    mask-position: center;
+    mask-image: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(25, 25, 25, 0) 30%, rgba(0, 0, 0, 0) 50%, rgba(20, 20, 20, 0) 70%, rgba(255,255,255,1) 100%);
+}
+
+input[type="submit"] {
+    justify-content: center;
+    background-color: #5762EE;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    font-weight: 500;
+    width: 90%;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 10px;
+    transition: 0.4s ease-in-out;
+    max-height: 40px;
+    height: 40px;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #14BBAB;
+    transition: 0.4s ease-in-out;
+    font-size: 17px;
+    
+}
+
+.login-link {
+	text-decoration: none;
+	color: #000000;
+	transition: .4s ease-in-out;
+}
+
+.login-link:hover {
+	transition: .4s ease-in-out;
+
+	color: #30ace6;
+}
+
+
+
+
+
+.register-link {
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #000;
+    transition: 0.4s ease-in-out;
+  }
+  
+  .register-link:hover {
+    transition: 0.4s ease-in-out;
+  
+    color: #30ace6;
+  }
+  
+  .ltype {
+    display: flex;
+    position: absolute;
+    width: 90%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #555555;
+    border-radius: 30px;
+    box-shadow: #000 0 0 20px;
+  }
+  
+  .ltype img {
+    width: 100%;
+  }
+  
+  .container#c1 {
+    width: 100%;
+    height: 100%;
+    background-image: url('books-texting.jpg') ;
+    background-size: cover;
+  }
+  
+  .container#c2 {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .container#c1,
+  .container#c2 {
+      padding: 15px ;
+      overflow: hidden;
+      position:relative;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 50%;
+      background-color: #ffffff;
+  }
+  
+  

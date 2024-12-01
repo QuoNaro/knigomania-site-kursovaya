@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'login/css/register.css' %}">
+        <link rel="shortcut icon" href="{% static 'book/img/favicon/favicon.ico' %}" type="image/x-icon">
+        <title>Регистрация</title>
+    </head>
+
+    <body>
+
+        
+
+        <script src="{% static 'login/js/login.js' %}"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
+
+    <body>
+        <div class="container" id="c1">
+            <div class="ltype"><img src="{% static 'book/img/LogoW.svg' %}" alt=""></div>
+            
+            
+        </div>
+        
+
+        <div class="container" id="c2">
+            <form method="post" class="box" id="box">
+                {% csrf_token %}
+                
+
+                <div class="username">
+                    <div class="c1">
+                        <span>Логин</span>
+                        <ion-icon name="person-outline"></ion-icon>
+                    </div>
+                    {{ form.username.errors }}
+                    {{ form.username }}
+                </div>
+    
+                <div class="password">
+                    <div class="c1">
+                        <span>Пароль</span>
+                        <ion-icon name="key-outline"></ion-icon>
+                    </div>
+                    {{ form.password1.errors }}
+                    {{ form.password1 }}
+                </div>
+                
+                <div class="password">
+                    <div class="c1">
+                        <span>Подтверждение пароля</span>
+                        <ion-icon name="key-outline"></ion-icon>
+                    </div>
+                    {{ form.password2.errors }}
+                    {{ form.password2 }}
+                </div>
+                
+                <div class="email">
+                    <div class="c1">
+                        <span>Email</span>
+                        <ion-icon name="mail-outline"></ion-icon>
+                    </div>
+                    {{ form.email.errors }}
+                    {{ form.email }}
+                </div>
+    
+    
+    
+                <input type="submit" value="Зарегистрироваться">
+    
+                <a class="login-link" href="{% url 'login' %}">Есть аккаунт ?</a>
+    
+            </form>
+        </div>
+  
+
+
+        
+        <script src="{% static "login/js/login.js" %}"></script>
+        <script type="module"
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
+
+
+</html>

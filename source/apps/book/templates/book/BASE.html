@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'book/img/favicon/favicon.ico' %}" />
+    <link rel="icon" type="image/png" href="{% static 'book/img/favicon/favicon-96x96.png'%}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{% static 'book/img/favicon/favicon.svg'%}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'book/img/favicon/apple-touch-icon.png'%}" />
+    <meta name="apple-mobile-web-app-title" content="Книгомания" />
+    <link rel="manifest" href="{% static 'book/img/favicon/site.webmanifest'%}" />
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="{% static 'book/css/base.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oranienbaum&display=swap');
+    </style>
+    {% block link %}{% endblock link %}
+
+    <!-- Скрипты -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="{% static 'book/js/base.js' %}"></script>
+    {% block script %}{% endblock script %}
+</head>
+
+<body>
+    <input type="hidden" value="{{ user.id }}" name="user_id">
+    {% csrf_token %}
+
+    <div class="start-notification hide">
+        <img src="{% static 'book/img/welcome.jpg' %}" alt="" srcset="">
+      </div> 
+    <div class="substrate-menu"></div>
+    
+    
+    <header> 
+        
+        <a href="{% url "home" %}">
+            <img src="{% static 'book/img/Logo.svg' %}" class="logo" alt="Логотип">
+        </a>
+        
+
+        <div class="meta-search">
+            <div class="search">
+                <input type="text" id="search-input" placeholder="Поиск по книгам">
+                <img class="search-icon" src="{% static 'book/img/search.svg' %}" alt="">
+            </div>
+            <div class="search-box">
+            
+            </div>
+        </div>
+        
+        <img class="menu-button" src="{% static 'book/img/menu.svg' %}" alt="">
+
+
+        
+    </header>
+
+    
+    <div class="menu">
+
+        <a href="{% if user.is_authenticated %} 
+            {% url 'user' %} 
+        {% else %}
+            {% url 'login' %}
+        {% endif %}" class="block-account">
+            <img src="{% static 'book/img/user.svg' %}" alt="">
+            <div class="username">
+                {% if user.is_authenticated %}
+                    {{ user.username }}
+                {% else %}
+                    Авторизация
+                {% endif %}
+            </div>
+        </a>
+        
+        <a href="{% if user.is_authenticated %} 
+            {% url 'pay' %} 
+        {% else %}
+            {% url 'login' %}
+        {% endif %}"  class="block-pay">
+            <div class="balance">
+                {% if user.is_authenticated %}
+                {{ user.money }} руб.
+                {% else %}
+                Не авторизован
+                {% endif %}
+
+            </div>
+            <img src="{% static 'book/img/ruble.svg' %}" alt="">
+        </a>
+        
+        
+        <div class="block-for-what">
+            <img src="
+            {% if user.is_authenticated %}
+                {% static 'book/img/question.svg' %}
+            {% else %}
+                {% static 'book/img/ura.svg' %}
+            {% endif %}
+            " alt="">
+            <div class="text">
+                {% if user.is_authenticated %}
+                    За что мне дали деньги ?
+                {% else %}
+                    Получите 1500 рублей при регистрации !
+                {% endif %}
+                </div>
+        </div>
+        
+
+        <div class="block-buttons">
+            <a href="{% url 'home' %}" class="block-button">
+                <img src="{% static 'book/img/book.svg' %}" alt="">
+                <p>Библеотека</p>
+            </a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'cart' %}" class="block-button">
+                <img src="{% static 'book/img/cart.svg' %}" alt="">
+                <p>Моя корзина</p>
+            </a>
+            {% endif %}
+
+        </div>
+
+        {% if user.is_authenticated %}
+        <a class="block-exit" href="{% url 'logout' %}">
+            Выйти из аккаунта
+        </a>
+        {% endif %}
+        
+
+    </div>
+
+    <div class="child-container">
+    {% block content %}
+    {% endblock %}
+    </div>
+
+
+</body>
+</html>

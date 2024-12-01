@@ -1,0 +1,82 @@
+.child-container {
+  display: flex;
+  height: 85%;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  flex-direction: column;
+  gap: 25px;
+  padding: 100px;
+}
+
+h1{
+  font-size: 50px;
+  font-weight: 900;
+  color: #5662EE;
+}
+
+.child-container * {
+  font-family: 'Comic';
+}
+
+.child-container img {
+  width: 35%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.child-container p {
+  width: 100%;
+  font-size: 35px;
+  
+  font-weight: 900;
+}
+
+.child-container p span {
+  color: #15BBAB;
+}
+
+@font-face {
+  font-family: "Comic"; 
+  src: url("Comic.otf") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+} 
+
+.infobox {
+  display: flex;
+  width: 100%;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.backdoor-button {
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #FC625D;
+  color: white;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 3.4em;
+  border-radius: 30px;
+  transition: .4s ease-in-out;
+  text-transform: uppercase;
+  cursor: pointer;
+
+}
+
+.backdoor-button:hover {
+  background-color: #FF4236;
+  transition: .4s ease-in-out;
+}
+
+.text {
+  gap: 25px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+

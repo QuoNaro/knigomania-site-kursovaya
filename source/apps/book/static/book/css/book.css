@@ -1,0 +1,312 @@
+/* Общие стили */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.6;
+}
+
+/* Контейнеры */
+.child-container {
+  height: 100vh;
+  gap: 25px;
+  display: flex;
+
+}
+
+.book-container {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  gap: 50px;
+  height: 80%;
+}
+
+/* Шрифт */
+@font-face {
+  font-family: "Comic";
+  src: url("Comic.otf") format("opentype");
+  font-display: swap;
+}
+
+/* Предварительный просмотр книги */
+.book-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 20%;
+}
+
+.book-cover {
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* Рекомендации и описание */
+.book-recommendations-cover,
+.book-description-cover,
+.d-book-info-cover {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.d-book-recommendations,
+.d-book-description,
+.d-book-info {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.d-book-recommendations p,
+.book-description-title ,
+.d-book-info-title{
+  font-family: 'Comic', sans-serif;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Детали книги */
+.book-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.book-author,
+.book-price,
+.annotation {
+  margin-bottom: 15px;
+}
+
+/* Рекомендации */
+.recommendations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-recommendations {
+  display: flex;
+  gap: 25px;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 30px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+}
+
+
+.recommended-book {
+  display: flex;
+  max-width: 140px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.recommended-book-cover {
+  height: 200px;
+  border-radius: 15px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.recommended-book-title {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Roboto';
+  max-height: 50px;
+  text-decoration: none;
+  word-break: break-all;
+  color: #000;
+  height: 35px;
+  
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.d-book-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tags, .genres {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  
+}
+
+.tags {
+  margin-bottom: 15px;
+}
+
+.tags-list, .genres-list {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  flex-wrap: wrap;
+  width: 100%;
+
+}
+
+.genre, .tag {
+  display: flex;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 60px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-transform: lowercase;
+
+}
+
+.genre {
+  background-color: #14BBAB;
+}
+
+.tag {
+  background-color: #5762EE;
+}
+
+.genres-title,.tags-title {
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.book-price, .in-cart {
+  display: flex;
+  font-size: 18px;
+  padding: 15px;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  font-weight: 900;
+  color: #000;
+  cursor: pointer;
+  align-items: center;
+  border: 2px #ddd solid;
+  
+  border-radius: 30px;
+  transition: .4s ease-in-out;
+
+}
+
+ .quantity {
+  top:0;
+  right: 0;
+  transform: translateY(-6px) translateX(5px);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 900;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: #14BBAB;
+  font-size: 15px;
+  width: auto; /* Задайте фиксированный размер */
+  height: 35px; /* Задайте фиксированный размер */
+  aspect-ratio: 1/1;
+  pointer-events: none;
+  overflow: hidden;
+  
+
+}
+
+.book-price:hover {
+  transition: .4s ease-in-out;
+  background-color: #ddd;
+}
+
+.book-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  word-break: break-all;
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+}
+
+.book-author {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  color: #666;
+}
+
+
+.auth-warning {
+  color: #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  width: 100%;
+  text-align: center;
+}
+
+.book-preview span {
+  display:  flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.book-preview .open-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  width: 100%;
+  text-align: center;
+  border-radius: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #FC625D;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}

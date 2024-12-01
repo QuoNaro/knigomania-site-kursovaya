@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="{% static "login/css/login.css" %}">
+        <link rel="shortcut icon" href="{% static 'book/img/favicon/favicon.ico' %}" type="image/x-icon">
+        
+        <title>Авторизация</title>
+    </head>
+
+    <body>
+        <div class="container" id="c1">
+            <div class="ltype"><img src="{% static 'book/img/LogoW.svg' %}" alt=""></div>
+            
+            
+        </div>
+        
+
+        <div class="container" id="c2">
+            <form method="post" class="box" id="box" >
+            {% csrf_token %}
+                <div class="login">
+                    <input id="login-input" type="text" name="username" required>
+                    <div class="c1">
+                        <ion-icon name="person-outline"></ion-icon> Логин
+                    </div>
+                </div>
+                <div class="password">
+
+                    <input id="password-input" type="password" name="password"
+                        required>
+                    <a href="#" class="password-control"
+                        ></a>
+                    <ion-icon name="eye-outline" id="eye"></ion-icon>
+                    <div class="c2">
+                        <ion-icon name="key-outline"></ion-icon> Пароль
+                    </div>
+                </div>
+                <input type="submit" value="Продолжить">
+
+                <a class="register-link" href="{% url 'register' %}">Зарегистрироваться</a>
+            </form>
+        </div>
+  
+
+
+        
+        <script src="{% static "login/js/login.js" %}"></script>
+        <script type="module"
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
+</html>

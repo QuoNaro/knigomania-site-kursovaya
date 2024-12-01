@@ -1,0 +1,46 @@
+{% extends "book/BASE.html" %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'book/css/search.css' %}">
+{% endblock%}
+
+{% block script %}
+<script src="{% static 'book/js/search.js' %}"></script>
+{% endblock %}
+
+
+{% block content%}
+
+  
+
+  {% if books %}
+  <div class="books">
+    {% for i in books %}
+      <a href="{{ request.scheme }}://{{ request.get_host }}/book/{{i.slug}}" class="book">
+        <div style="background-image:url({{ i.image }})" class="img"></div>
+        <div class="name">{{i.short_title}}</div>
+        <div class="author">{{i.author_name}}</div>
+        <div class="price">  {{i.price}} руб.</div>
+      </a>
+    {% endfor %}
+
+
+  {% else %}
+  <div class="books-not-found">
+    <p class="first">К сожалению, по вашему запросу</p> <p class="second"></p> <class="third" p>ничего не найдено.</p>
+    <img src="{% static 'book/img/kitty.svg' %}" alt="Котик">
+  </div>
+  
+  {% endif %}
+  
+
+   
+  </div>
+  <div class="up-button">&gt;</div>
+
+
+  
+
+
+{% endblock %}
