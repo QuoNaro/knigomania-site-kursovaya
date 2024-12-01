@@ -9,6 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, os.path.join(BASE_DIR, "apps"))
 SECRET_KEY = TOKEN
 DEBUG = True
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000', 'https://knigomania.qnro.ru']
 ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     "semantic_admin",
