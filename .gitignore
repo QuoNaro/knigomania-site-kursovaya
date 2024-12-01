@@ -9,10 +9,13 @@ __pycache__/
 # C extensions
 *.so
 source/static/
+.ruff_cache/
+source/volumes/postgres_data/
 test/
 
 # Distribution / packaging
 .Python
+
 build/
 develop-eggs/
 dist/
